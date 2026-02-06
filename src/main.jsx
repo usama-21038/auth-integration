@@ -1,14 +1,23 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Root from './LayOuts/Root.jsx';
 import Home from './Components/Home/Home.jsx';
 import Register from './Components/Register/Register.jsx';
 import Login from './Components/Home/Login/Login.jsx';
+import { AuthContext } from './Context/AuthProvider.jsx';
 
+
+// export const AuthContext= createContext(null);
+
+// const userInfo={
+//   email:'potato@alo.com',
+//   name:'potato',
+//   id:1234,
+// }
 
 const router = createBrowserRouter([
   {
@@ -26,6 +35,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+    <AuthContext>
+       <RouterProvider router={router} />
+   // </AuthContext>
   </StrictMode>,
 )
