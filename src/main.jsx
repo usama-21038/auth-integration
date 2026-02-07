@@ -8,7 +8,7 @@ import Root from './LayOuts/Root.jsx';
 import Home from './Components/Home/Home.jsx';
 import Register from './Components/Register/Register.jsx';
 import Login from './Components/Home/Login/Login.jsx';
-import { AuthContext } from './Context/AuthProvider.jsx';
+import FirebaseAuthProvider from './Context/FirebaseAuthProvider.jsx';
 
 
 // export const AuthContext= createContext(null);
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthContext>
+    <FirebaseAuthProvider>
        <RouterProvider router={router} />
-   // </AuthContext>
+    </FirebaseAuthProvider>
   </StrictMode>,
 )
