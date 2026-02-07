@@ -9,6 +9,10 @@ import Home from './Components/Home/Home.jsx';
 import Register from './Components/Register/Register.jsx';
 import Login from './Components/Home/Login/Login.jsx';
 import FirebaseAuthProvider from './Context/FirebaseAuthProvider.jsx';
+import Orders from './Components/Navbar/Orders/Orders.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
+import Profile from './Routes/Profile/Profile.jsx';
+import Dashboard from './Components/Dashboard/Dashboard.jsx';
 
 
 // export const AuthContext= createContext(null);
@@ -27,6 +31,9 @@ const router = createBrowserRouter([
       {index:true, Component:Home},
       {path:"/login", Component: Login},
       {path:"/register", Component:Register},
+      {path:"/orders",element:<PrivateRoute><Orders/></PrivateRoute>},
+      {path:"/profile",element:<PrivateRoute><Profile></Profile></PrivateRoute>},
+      {path:"/dashboard",element:<PrivateRoute><Dashboard></Dashboard> </PrivateRoute>},
     ]
   },
 ]);
